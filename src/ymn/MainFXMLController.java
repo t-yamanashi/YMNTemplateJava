@@ -5,6 +5,7 @@
  */
 package ymn;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,6 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import ymn.debug.Debug;
 
 /**
@@ -50,8 +54,11 @@ public class MainFXMLController implements Initializable {
 
     @FXML
     private void selectFileAction(ActionEvent event) {
-        Button bt = (Button)event.getSource();
-        Debug.message(bt.getId());
+        FileChooser fc = new FileChooser();
+        // showOpenDialogの引数未確認
+        File fileP = fc.showOpenDialog(null);
+        templateTextField.setText(fileP.getAbsolutePath());
+        
     }
 
     @FXML
