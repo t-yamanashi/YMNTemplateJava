@@ -50,17 +50,20 @@ public class MainFXMLController implements Initializable {
 
     @FXML
     private void selectFileAction(ActionEvent event) {
-        Debug.message("selectFileAction");
+        Button bt = (Button)event.getSource();
+        Debug.message(bt.getId());
     }
 
     @FXML
     private void convertButtonAction(ActionEvent event) {
-        Debug.message("convertButtonAction");
+        Button bt = (Button)event.getSource();
+        Debug.message(bt.getId());
     }
 
     @FXML
     private void copyButtonAction(ActionEvent event) {
-        Debug.message("copyButtonAction");
+        Button bt = (Button)event.getSource();
+        Debug.message(bt.getId());
     }
     
 }
