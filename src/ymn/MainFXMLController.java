@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import ymn.debug.Debug;
 
 /**
  * FXML Controller class
@@ -49,14 +50,17 @@ public class MainFXMLController implements Initializable {
 
     @FXML
     private void selectFileAction(ActionEvent event) {
+        Debug.message("selectFileAction");
     }
 
     @FXML
     private void convertButtonAction(ActionEvent event) {
+        Debug.message("convertButtonAction");
     }
 
     @FXML
     private void copyButtonAction(ActionEvent event) {
+        Debug.message("copyButtonAction");
     }
     
 }
