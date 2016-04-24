@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -90,10 +91,17 @@ public class MainFXMLController implements Initializable {
      */
     @FXML
     private void selectFileAction(ActionEvent event) {
+        Button bt = (Button)event.getSource();
         FileChooser fc = new FileChooser();
         // showOpenDialogの引数未確認
         File fileP = fc.showOpenDialog(null);
-        templateTextField.setText(fileP.getAbsolutePath());
+        String fineName = fileP.getAbsolutePath();
+        
+        if (bt == templateSelectButton){
+            templateTextField.setText(fineName);
+        }else if(bt == dataSelectButton){
+            dataTextField.setText(fineName);
+        }
     }
 
     /**
@@ -103,8 +111,11 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void convertButtonAction(ActionEvent event) {
         TextConvert tc = new TextConvert();
-        String convertStr = tc.convert(templateTextField.getText());
+        String convertStr = tc.convert(templateTextField.getText(), dataTextField.getText());
         convertTextArea.setText(convertStr);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("変換完了");
+        alert.show();
     }
 
     /**
