@@ -105,7 +105,8 @@ public class MainFXMLController implements Initializable {
         Button bt = (Button)event.getSource();
         Debug.message(bt.getId());
         TextConvert tc = new TextConvert();
-        tc.Convert(templateTextField.getText());
+        String convertStr = tc.convert(templateTextField.getText());
+        convertTextArea.setText(convertStr);
     }
 
     /**
