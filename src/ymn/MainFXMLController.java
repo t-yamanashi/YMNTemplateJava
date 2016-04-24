@@ -1,5 +1,6 @@
 package ymn;
 
+import javafx.scene.input.Clipboard;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import ymn.debug.Debug;
@@ -82,7 +84,6 @@ public class MainFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
     
     /**
      * ファイル選択ボタン
@@ -93,7 +94,6 @@ public class MainFXMLController implements Initializable {
         // showOpenDialogの引数未確認
         File fileP = fc.showOpenDialog(null);
         templateTextField.setText(fileP.getAbsolutePath());
-        
     }
 
     /**
@@ -102,8 +102,6 @@ public class MainFXMLController implements Initializable {
      */
     @FXML
     private void convertButtonAction(ActionEvent event) {
-        Button bt = (Button)event.getSource();
-        Debug.message(bt.getId());
         TextConvert tc = new TextConvert();
         String convertStr = tc.convert(templateTextField.getText());
         convertTextArea.setText(convertStr);
@@ -115,8 +113,10 @@ public class MainFXMLController implements Initializable {
      */
     @FXML
     private void copyButtonAction(ActionEvent event) {
-        Button bt = (Button)event.getSource();
-        Debug.message(bt.getId());
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent content = new ClipboardContent();
+        content.putString(convertTextArea.getText());
+        clipboard.setContent(content);
     }
     //</editor-fold>
     
