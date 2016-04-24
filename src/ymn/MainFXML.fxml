@@ -17,7 +17,7 @@
       <Label layoutX="44.0" layoutY="81.0" text="読込ファイル形式" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="81.0" />
       <ComboBox layoutX="147.0" layoutY="76.0" prefWidth="150.0" AnchorPane.leftAnchor="147.0" AnchorPane.topAnchor="76.0" />
       <Button layoutX="10.0" layoutY="109.0" mnemonicParsing="false" text="変換" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="109.0" />
-      <Button layoutX="61.0" layoutY="109.0" mnemonicParsing="false" text="コピー" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="109.0" />
+      <Button fx:id="copyButton" layoutX="61.0" layoutY="109.0" mnemonicParsing="false" text="コピー" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="109.0" />
       <TextArea layoutX="10.0" layoutY="141.0" prefHeight="148.0" prefWidth="555.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="141.0" />
     </children>
 </AnchorPane>
