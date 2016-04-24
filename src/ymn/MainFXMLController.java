@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ymn;
 
 import java.io.File;
@@ -19,37 +14,79 @@ import javafx.stage.FileChooser;
 import ymn.debug.Debug;
 
 /**
- * FXML Controller class
+ * メイン画面 Controller class
  *
- * @author user
+ * @author 山梨智之
  */
 public class MainFXMLController implements Initializable {
 
+    //<editor-fold defaultstate="collapsed" desc="フィールド">
+    
+    /**
+     * コピーボタン
+     */
     @FXML
     private Button copyButton;
+    
+    /**
+     * ファイルフォーマットコンボボックス
+     */
     @FXML
     private AnchorPane fileFormatComboBox;
+    
+    /**
+     * テンプレートファイル名テキストフィールド
+     */
     @FXML
     private TextField templateTextField;
+    
+    /**
+     * テンプレートファイル選択ボタン
+     */
     @FXML
     private Button templateSelectButton;
+    
+    /**
+     * データファイルファイル名テキストフィールド
+     */
     @FXML
     private TextField dataTextField;
+    
+    /**
+     * データファイル選択ボタン
+     */
     @FXML
     private Button dataSelectButton;
+    
+    /**
+     * 変換ボタン
+     */
     @FXML
     private Button convertButton;
+    
+    /**
+     * 変換結果テキストエリア
+     */
     @FXML
     private TextArea convertTextArea;
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="イベント">
 
     /**
-     * Initializes the controller class.
+     * 初期化
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
+    
+    /**
+     * ファイル選択ボタン
+     */
     @FXML
     private void selectFileAction(ActionEvent event) {
         FileChooser fc = new FileChooser();
@@ -59,6 +96,10 @@ public class MainFXMLController implements Initializable {
         
     }
 
+    /**
+     * 変換ボタン
+     * @param event 
+     */
     @FXML
     private void convertButtonAction(ActionEvent event) {
         Button bt = (Button)event.getSource();
@@ -67,10 +108,15 @@ public class MainFXMLController implements Initializable {
         tc.Convert(templateTextField.getText());
     }
 
+    /**
+     * コピーボタン
+     * @param event 
+     */
     @FXML
     private void copyButtonAction(ActionEvent event) {
         Button bt = (Button)event.getSource();
         Debug.message(bt.getId());
     }
+    //</editor-fold>
     
 }

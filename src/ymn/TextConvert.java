@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ymn;
 
 import java.io.BufferedReader;
@@ -14,11 +9,15 @@ import java.nio.file.Paths;
 import ymn.debug.Debug;
 
 /**
- *
- * @author user
+ * 文字返還クラス
+ * @author 山梨智之
  */
 public class TextConvert {
     
+    /**
+     * 変換実行
+     * @param templateFile テンプレートファイル名
+     */
     public void Convert(String templateFile){
         try {
             byte[] byteText = Files.readAllBytes(Paths.get(templateFile));
