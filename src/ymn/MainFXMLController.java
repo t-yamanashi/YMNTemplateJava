@@ -12,6 +12,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import ymn.debug.Debug;
@@ -129,6 +132,38 @@ public class MainFXMLController implements Initializable {
         content.putString(convertTextArea.getText());
         clipboard.setContent(content);
     }
+    
+    /**
+     * ドラッグ中
+     * @param event 
+     */
+    @FXML
+    private void selectFileDragOver(DragEvent event) {
+        TextField tx = (TextField)event.getSource();
+        Dragboard board = event.getDragboard();
+        if (board.hasFiles()) {
+            event.acceptTransferModes(TransferMode.COPY);
+        }
+    }
+
+    /**
+     * ドラッグ完了
+     * @param event 
+     */
+    @FXML
+    private void selectFileDragDroped(DragEvent event) {
+        TextField tx = (TextField)event.getSource();
+        Dragboard board = event.getDragboard();
+        if (!board.hasFiles()) {
+            event.setDropCompleted(false);
+            return;
+        }
+        event.setDropCompleted(true);
+        File file = board.getFiles().get(0);
+        String fileName = file.getPath();
+        tx.setText(fileName);
+    }
+    
     //</editor-fold>
     
 }
