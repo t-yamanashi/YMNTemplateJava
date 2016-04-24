@@ -15,9 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import ymn.debug.Debug;
 
 /**
@@ -65,6 +63,8 @@ public class MainFXMLController implements Initializable {
     private void convertButtonAction(ActionEvent event) {
         Button bt = (Button)event.getSource();
         Debug.message(bt.getId());
+        TextConvert tc = new TextConvert();
+        tc.Convert(templateTextField.getText());
     }
 
     @FXML
