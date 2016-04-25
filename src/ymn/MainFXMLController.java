@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.ClipboardContent;
@@ -38,7 +39,7 @@ public class MainFXMLController implements Initializable {
      * ファイルフォーマットコンボボックス
      */
     @FXML
-    private AnchorPane fileFormatComboBox;
+    private ComboBox<?> fileFormatComboBox;
     
     /**
      * テンプレートファイル名テキストフィールド
