@@ -4,6 +4,8 @@ import javafx.scene.input.Clipboard;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,7 +41,7 @@ public class MainFXMLController implements Initializable {
      * ファイルフォーマットコンボボックス
      */
     @FXML
-    private ComboBox<?> fileFormatComboBox;
+    private ComboBox<String> fileFormatComboBox;
     
     /**
      * テンプレートファイル名テキストフィールド
@@ -87,7 +89,12 @@ public class MainFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ObservableList<String> ob;
+        ob = FXCollections.observableArrayList();
+        ob.add("UTF-8");
+        ob.add("Shift-JIS");
+        fileFormatComboBox.setItems(ob);
+        fileFormatComboBox.setValue("UTF-8");
     }    
     
     /**
@@ -115,7 +122,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void convertButtonAction(ActionEvent event) {
         TextConvert tc = new TextConvert();
-        String convertStr = tc.convert(templateTextField.getText(), dataTextField.getText());
+        String convertStr = tc.convert(templateTextField.getText(), dataTextField.getText(), fileFormatComboBox.getValue());
         convertTextArea.setText(convertStr);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("変換完了");

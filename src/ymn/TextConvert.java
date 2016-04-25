@@ -20,10 +20,10 @@ public class TextConvert {
      * @param dataFile データファイル名
      * @return 変換結果
      */
-    public String convert(String templateFile, String dataFile){
-        String templateStr = readTextFile(templateFile);
+    public String convert(String templateFile, String dataFile, String fmt){
+        String templateStr = readTextFile(templateFile, fmt);
         MessageFormat msgFmt = new MessageFormat(templateStr);
-        String dataStr = readTextFile(dataFile);
+        String dataStr = readTextFile(dataFile, fmt);
         StringBuilder sb = new StringBuilder();
         String[] dataLines  = dataStr.split("\n");
         for (String dataLine : dataLines) {
@@ -39,11 +39,12 @@ public class TextConvert {
      * ファイル読込
      * @param fileName
      */
-    private String readTextFile(String fileName) {
+    private String readTextFile(String fileName, String fmt) {
         String retString = "";
+
         try {
             byte[] byteText = Files.readAllBytes(Paths.get(fileName));
-            retString = new String(byteText, StandardCharsets.UTF_8);
+            retString = new String(byteText, fmt);
         } catch (Exception e) {
               Debug.message(e.getMessage());
         }
