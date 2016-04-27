@@ -20,6 +20,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import ymn.debug.Debug;
 
 /**
@@ -31,6 +32,13 @@ public class MainFXMLController implements Initializable {
 
     //<editor-fold defaultstate="collapsed" desc="フィールド">
     
+    /**
+     * メインパネル
+     */
+    @FXML
+    private AnchorPane mainPane;
+
+        
     /**
      * コピーボタン
      */
@@ -80,6 +88,14 @@ public class MainFXMLController implements Initializable {
     private TextArea convertTextArea;
     //</editor-fold>
 
+    /**
+     * ダイアログようにWindowを取得
+     * @return 
+     */
+    private Window getWindow(){
+        return mainPane.getScene().getWindow();
+    }
+    
     //<editor-fold defaultstate="collapsed" desc="イベント">
 
     /**
@@ -105,7 +121,7 @@ public class MainFXMLController implements Initializable {
         Button bt = (Button)event.getSource();
         FileChooser fc = new FileChooser();
         // showOpenDialogの引数未確認
-        File fileP = fc.showOpenDialog(null);
+        File fileP = fc.showOpenDialog(getWindow());
         String fineName = fileP.getAbsolutePath();
         
         if (bt == templateSelectButton){

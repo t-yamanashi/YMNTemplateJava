@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="298.0" prefWidth="574.0" style="-fx-background-color: #dddddd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ymn.MainFXMLController">
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="298.0" prefWidth="574.0" style="-fx-background-color: #dddddd;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ymn.MainFXMLController">
     <children>
       <Label layoutX="29.0" layoutY="16.0" text="テンプレートファイル" AnchorPane.leftAnchor="29.0" />
       <TextField fx:id="templateTextField" layoutX="147.0" layoutY="10.0" onDragDropped="#selectFileDragDroped" onDragOver="#selectFileDragOver" prefHeight="25.0" prefWidth="365.0" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="62.0" AnchorPane.topAnchor="10.0" />
