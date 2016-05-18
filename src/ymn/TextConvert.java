@@ -27,14 +27,13 @@ public class TextConvert {
         StringBuilder sb = new StringBuilder();
         String[] dataLines  = dataStr.split("\n");
         for (String dataLine : dataLines) {
-            String[] data  = dataLine.split("\t");
+            String[] data  = dataLine.trim().split("\t");
             String convString = msgFmt.format(data);
             sb.append(convString);
-        }
-       
+        }     
         return sb.toString();
     }
-
+    
     /**
      * ファイル読込
      * @param fileName
