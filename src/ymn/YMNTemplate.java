@@ -25,7 +25,7 @@ public class YMNTemplate extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle("YMNTemplate Vre0.1.2014.05.09");
+        stage.setTitle("YMNTemplate Vre0.1.2016.05.09");
         stage.show();
     }
 
